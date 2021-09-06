@@ -1,0 +1,16 @@
+.menue{
+    display: flex;
+    background-color:blueviolet ;
+}
+
+.menue-li{
+    background-color:aquamarine ;
+    border:3px solid blueviolet;
+}
+.item{
+    font-size: 20px;
+    background-color: rgb(190, 185, 185);
+    width: 30px;
+    text-align: center;
+    border:3px solid blueviolet;
+}

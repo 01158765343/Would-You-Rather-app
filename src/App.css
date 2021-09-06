@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+  /* float: left; */
+  /* padding: 15px; */
+  border: 1px solid hsl(0, 2%, 72%);
+}
+
+img {
+  border-radius: 50%;
+  /* width: 60px;
+  height: 60px; */
+  /* margin-right: 20px; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
+}
+.profil{
+  margin-top: 30px;
+
+
+}
+.div-profil {
+  width: 75%;
+  height:60px
+}
+.btn {
+  display: block;
+
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.144);
+  /* justify-content: center; */
+  /* align-items: center; */
+
+}
+.select {
+  display: block;
+  /* width: 20%; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  /* text-align: center; */
+}
+/* .cont{
+  text-align: center;
+} */
+.score {
+  background-color: red;
+  font-size:xx-large;
+  text-align: center;
+}
+.span {
+  text-align: center;
+
+}
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+.form {
+  margin-top: 15%;
+  /* text-align: center; */
+  display: block;
+  font-size: 24px;
+}
+.x{
+  display: block;
+}
+.reght{
+  display: block;
+  background-color: green;
+  height: 5px;
+}
+.option1 {
+  border: 3px solid rgb(255, 250, 250);
+
+}
+.red{
+  width: 60%;
+  height: 4px;
+  background-color: red;
+}
+.signin{
+  /* text-align: center; */
+  margin-top: 30px;
+}
+.conteniner{
+  display:grid;
+  justify-content: center;
+}
+button {
+  background-color:steelblue;
+
+
+}
+
+.barnev {
+  display: inline-block;
+  background-color: aquamarine;
+  width: 20%;
+}
+.logout {
+  float:right;
+}
+.cc{
+  height: 60px;
+  background-color: blueviolet;
+  
+}
+.active{
+  background-color: red;
+}
+.anser-vote{
+  padding: 10px;
+  border: 3px solid rgb(190, 185, 185);
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 160px;
+}
+.foot {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.267);
+}
+
+.im {
+  width: 160px;
+  height: 160px;
+}

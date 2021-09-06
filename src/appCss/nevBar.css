@@ -1,0 +1,17 @@
+.nevbar {
+    display: inline-block;
+    background-color: aquamarine;
+    width: 20%;
+    border:3px solid blueviolet;
+    text-align: center;
+  }
+  .logout {
+    float:right;
+  }
+  .nev{
+    height: 60px;
+    background-color: blueviolet;
+  }
+  .active{
+    background-color: red;
+  }
