@@ -29,7 +29,9 @@ class AllApp extends Component{
             alert("please seleact user")
         } else {
             this.props.loginA()
-            this.props.history.push(`/dashporder/unanswers`)
+            // this.props.history.push(`/dashporder/unanswers`)
+            const { from } = this.props.location.state || { from: { pathname: '/dashporder/unanswers' } }
+            this.props.history.push(from)
         }
     }
     onupdeat=(e)=>{
@@ -67,12 +69,14 @@ class AllApp extends Component{
                         onupdeat={this.onupdeat}
                         login={this.login} />
                     )} />
-                    <Redirect  to="/login" />
+                    
                     
                     <ProtectedRoute  path='/dashporder/unanswers/:id' render={()=>(
                     <Vote id={this.props.qid}/>
                     )} />
+
                     <Footer />
+                   
             </div>
         )
     }

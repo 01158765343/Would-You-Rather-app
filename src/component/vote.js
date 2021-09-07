@@ -4,7 +4,7 @@ import  {_saveQuestionAnswer ,_getQuestions ,_getUsers} from '../_DATA'
 import {questions } from "../action/questions"
 import {user } from "../action/user"
 import { withRouter } from "react-router-dom"
-
+import NotFound from "./notFound"
 
 class Vote extends Component {
 
@@ -42,7 +42,9 @@ class Vote extends Component {
         return (
             <div>
                 <h1>what do you rether ?</h1>
-                {this.props.id&&<form className="form" onChange={(e)=>{this.chang(e.target.value)}}  onSubmit={this.vote}>
+                {this.props.id&&
+                 (question[id])?
+                (<form className="form" onChange={(e)=>{this.chang(e.target.value)}}  onSubmit={this.vote}>
                     <div>
                     <label htmlFor="pO" >  {question[id].optionOne.text}</label>
                     <input type="radio"  name="option" id="pO" value="optionOne" />
@@ -54,7 +56,9 @@ class Vote extends Component {
                     </div>
                     <input type="submit" className="x" value="vote" />
                     
-                </form>}
+                </form>):<div> <NotFound/> </div>
+                
+                }
             </div>
         )
     }

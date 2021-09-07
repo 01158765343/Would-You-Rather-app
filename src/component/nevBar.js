@@ -1,6 +1,7 @@
 import React, {Component} from "react"
+import { Fragment } from "react"
 import { connect } from "react-redux"
-import {Link ,NavLink } from "react-router-dom"
+import {Link ,NavLink, withRouter } from "react-router-dom"
 import {removeId} from "../action/user"
 
 import "../appCss/nevBar.css"
@@ -30,13 +31,15 @@ class NevBar extends Component {
                         <li className="nevbar" >user</li>
                         </Link>
 
-                        { loggedIn === true  &&<li className="name nevbar " >{user[id].name}</li>}                    
-                        <Link to="/login" className="navbar-brand">
-                            <li onClick={this.logaute} className="nevbar logout">
-                                <button > x</button>
-                            </li>
-                        </Link>
-                        
+                        { loggedIn === true  &&
+                            <>
+                            <li className="name nevbar " >{user[id].name}</li>                    
+                            <Link to="/login" className="navbar-brand">
+                                <li onClick={this.logaute} className="nevbar logout">
+                                    <button > x</button>
+                                </li>
+                            </Link> 
+                            </>}
                     </ul>
                 </div>
             
@@ -53,4 +56,4 @@ function mapStateToProps ({User ,rootId}){
         user:User
     }
 }
-export default connect(mapStateToProps,{removeId})(NevBar)
+export default withRouter(connect(mapStateToProps,{removeId})(NevBar))

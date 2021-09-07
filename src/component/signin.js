@@ -1,5 +1,6 @@
 import React ,{Component} from "react"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import {addId} from "../action/user"
 
 class signin extends Component{
@@ -23,6 +24,7 @@ class signin extends Component{
 
     }
     render (){
+        console.log("from",this.props.props)
         console.log(this.state.id)
         const {user }=this.props
         return (
@@ -49,7 +51,8 @@ const mapStateToProps=({User},props)=>{
     return {
         user:User,
         login:props.login,
-        onupdeat:props.onupdeat
+        onupdeat:props.onupdeat,
+        props
     }
 }
-export default connect(mapStateToProps,{addId})(signin)
+export default withRouter(connect(mapStateToProps,{addId})(signin))
