@@ -30,7 +30,7 @@ class Dashporder extends Component {
                             </li>
                         </NavLink>
                         <span className="item">{Object.keys(questions).length - Object.keys(user[id].answers).length}</span>
-                        <NavLink to="add-question" className="">
+                        <NavLink to="/dashporder/questions/:question_id" className="">
                             <li onClick={this.userAnser} className="menue-li">
                                 qustion answer
                             </li>

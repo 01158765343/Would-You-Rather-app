@@ -71,10 +71,10 @@ class AllApp extends Component{
                     )} />
                     
                     
-                    <ProtectedRoute  path='/dashporder/unanswers/:id' render={()=>(
+                    <ProtectedRoute  path='/questions/:question_id' render={()=>(
                     <Vote id={this.props.qid}/>
                     )} />
-
+                    <Redirect from="/" to="/home" />
                     <Footer />
                    
             </div>

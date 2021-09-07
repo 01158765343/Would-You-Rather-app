@@ -34,6 +34,8 @@ class Vote extends Component {
                 this.props.questions(x)
             })
             this.props.history.push(`/dashporder/questionAnsers`)
+            // /dashporder/questions/:question_id
+            // /dashporder/questionAnsers
         }
     }
     render (){

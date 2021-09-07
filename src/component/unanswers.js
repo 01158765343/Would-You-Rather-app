@@ -11,7 +11,7 @@ class UnAnswers extends Component {
         console.log(id)
         this.setState({id})
         this.props.Voteqid(id)
-        this.props.history.push(`/dashporder/unanswers/${id}`)
+        this.props.history.push(`/questions/:${id}`)
     }
     time =()=>{
         const {questions,myid}=this.props
@@ -23,12 +23,12 @@ class UnAnswers extends Component {
     }
     render (){
         console.log("ssss",this.props.a)
-        const {questions ,my}=this.props
+        const {questions ,questionUnAnswers}=this.props
         return (
             <div>
                 <ul>
                     {
-                        my.map((x)=>(
+                        questionUnAnswers.map((x)=>(
                             <li key={x}>
                                 <div onClick={this.time}>{questions[x].optionOne.text}</div>
                                 <div>{questions[x].optionTwo.text}</div>
@@ -64,7 +64,7 @@ function mapStateToProps ({questions, User} , props){
         questions,
         User,
         myid,
-        my :myid.length > 0 ? myid.sort((a,b) => questions[b].timestamp - questions[a].timestamp) :myid
+        questionUnAnswers :myid.length > 0 ? myid.sort((a,b) => questions[b].timestamp - questions[a].timestamp) :myid
         
     }
 }
