@@ -4,12 +4,14 @@ import {Link ,NavLink } from "react-router-dom"
 import {removeId} from "../action/user"
 
 import "../appCss/nevBar.css"
+
 class NevBar extends Component {
 
     logaute=()=>{
         this.props.removeId(null)
     }
     render (){
+        let { loggedIn,id,user}=this.props
         return (
                 <div className="nev">
                     <ul>
@@ -24,14 +26,14 @@ class NevBar extends Component {
                         </Link>
                     
                     
-                        <Link to="/user" className="navbar-brand">
+                        <Link to="/leaderboard" className="navbar-brand">
                         <li className="nevbar" >user</li>
                         </Link>
-                    
-                    
+
+                        { loggedIn === true  &&<li className="name nevbar " >{user[id].name}</li>}                    
                         <Link to="/login" className="navbar-brand">
-                            <li className="nevbar logout">
-                                <button onClick={this.logaute}> x</button>
+                            <li onClick={this.logaute} className="nevbar logout">
+                                <button > x</button>
                             </li>
                         </Link>
                         
@@ -41,4 +43,14 @@ class NevBar extends Component {
         )
     }
 }
-export default connect(null,{removeId})(NevBar)
+
+function mapStateToProps ({User ,rootId}){
+    
+        
+    return{
+        loggedIn:rootId.loggedIn,
+        id:rootId.id,
+        user:User
+    }
+}
+export default connect(mapStateToProps,{removeId})(NevBar)

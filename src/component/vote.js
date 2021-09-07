@@ -13,25 +13,28 @@ class Vote extends Component {
     }
     chang=(e)=>{
         this.setState({option:e})
-        console.log("good",this.state.option)
     }
     vote=(e)=>{
         e.preventDefault()
-        let a = {}
-        a.authedUser=this.props.author
-        a.qid=this.props.id
-        a.answer=this.state.option
-        console.log("a",a)
-        _saveQuestionAnswer(a)
-        _getQuestions()
-        .then((x)=>{
-            this.props.user(x)
-        })
-        _getUsers()
-        .then((x)=>{
-            this.props.questions(x)
-        })
-        this.props.history.push(`/dashporder/questionAnsers`)
+        if(this.state.option===""){
+            alert("plesae select option")
+        }else {
+            console.log("option",this.state.option)
+            let a = {}
+            a.authedUser=this.props.author
+            a.qid=this.props.id
+            a.answer=this.state.option
+            _saveQuestionAnswer(a)
+            _getQuestions()
+            .then((x)=>{
+                this.props.user(x)
+            })
+            _getUsers()
+            .then((x)=>{
+                this.props.questions(x)
+            })
+            this.props.history.push(`/dashporder/questionAnsers`)
+        }
     }
     render (){
         const {question , id}=this.props

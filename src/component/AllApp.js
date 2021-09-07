@@ -25,11 +25,11 @@ class AllApp extends Component{
     }
     login=(e)=>{
         e.preventDefault()
-        if(this.props.id !==  "" && this.props.id !== null){
-        this.props.loginA()
-        this.props.history.push(`/dashporder/unanswers`)
-        } else {
+        if(this.props.id ===  "" || this.props.id === null || this.props.id ==="undefined"){
             alert("please seleact user")
+        } else {
+            this.props.loginA()
+            this.props.history.push(`/dashporder/unanswers`)
         }
     }
     onupdeat=(e)=>{
@@ -38,16 +38,23 @@ class AllApp extends Component{
         console.log("e",this.state.id)
         this.props.addId(e.target.value)
     }
+    name =()=>{
+        if(this.props.loggedIn === true ){
+            return this.props.user[this.props.id]
+        }else {
+            return null
+        }
+    }
     render (){
         
-
+        
         return(
             <div>
                 
-                    <NevBar />
+                    <NevBar  id={this.props.id } />
                     
                     <ProtectedRoute path="/dashporder" component={Dashporder} />
-                    <ProtectedRoute path="/user" component={User} />
+                    <ProtectedRoute path="/leaderboard" component={User} />
                     <ProtectedRoute path="/add" component={Add}  />
                     <ProtectedRoute exact path="/dashporder/unanswers" render={()=>(
                         <UnAnswers id ={this.props.id} />
@@ -76,7 +83,8 @@ function mapStateToProps(state ,props) {
     return {
         id:state.rootId.id,
         qid:state.rootId.qid,
-        
+        user:state.User,
+        loggedIn:state.loggedIn
     }
 }
 export default withRouter(connect(mapStateToProps,{addId ,loginA})(AllApp))
